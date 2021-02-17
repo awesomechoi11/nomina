@@ -1,0 +1,158 @@
+#intro {
+    position: absolute;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    background-color: bisque;
+}
+
+//offset
+@mixin posoffset($x, $y) {
+    // write the css here
+    left: calc(-50% + #{$x});
+    top: calc(-50% + #{$y});
+}
+
+.navbar {
+    z-index: 101;
+    position: absolute;
+
+    top: 0;
+    height: 5vw;
+    width: 100vw;
+    background-color: #0000;
+}
+.item {
+    position: absolute;
+    display: grid;
+
+    > * {
+        position: relative;
+        cursor: pointer;
+        pointer-events: all;
+        path {
+            fill: black;
+            transition: fill 300ms;
+        }
+    }
+    &.home > div {
+        @include posoffset(10vw, 4.375vw);
+        > .svgclass {
+            width: 4.844vw;
+            height: auto;
+        }
+    }
+    &.shop > div {
+        @include posoffset(20vw, 8.906vw);
+        > .svgclass {
+            width: 4.115vw;
+            height: auto;
+        }
+    }
+    &.veniroe > div {
+        pointer-events: none;
+        @include posoffset(50vw, 14.271vw);
+        > .svgclass {
+            width: 34.896vw;
+            height: auto;
+        }
+    }
+    &.story > div {
+        @include posoffset(80vw, 8.906vw);
+        > .svgclass {
+            width: 4.6875vw;
+            height: auto;
+        }
+    }
+    &.gallery > div {
+        @include posoffset(90vw, 4.375vw);
+        > .svgclass {
+            width: 6.25vw;
+            height: auto;
+        }
+    }
+}
+.filler {
+    height: 100vh;
+}
+
+//navbar states
+/********* at top of page after loading *********
+** big
+
+&.home > div {
+    @include posoffset(10vw, 4.375vw);
+    > .svgclass {
+        width: 4.844vw;
+        height: auto;
+    }
+}
+&.shop > div {
+    @include posoffset(20vw, 8.906vw);
+    > .svgclass {
+        width: 4.115vw;
+        height: auto;
+    }
+}
+&.veniroe > div {
+    @include posoffset(50vw, 14.271vw);
+    > .svgclass {
+        width: 34.896vw;
+        height: auto;
+    }
+}
+&.story > div {
+    @include posoffset(80vw, 8.906vw);
+    > .svgclass {
+        width: 4.6875vw;
+        height: auto;
+    }
+}
+&.gallery > div {
+    @include posoffset(90vw, 4.375vw);
+    > .svgclass {
+        width: 6.25vw;
+        height: auto;
+    }
+}
+*/
+
+/*********not at top of page after loading
+ * 
+    &.home > div {
+        @include posoffset(10vw, 4.7656vw);
+        > .svgclass {
+            width: 3.2292vw;
+            height: auto;
+        }
+    }
+    &.shop > div {
+        @include posoffset(27vw, 4.7656vw);
+        > .svgclass {
+            width: 2.7604vw;
+            height: auto;
+        }
+    }
+    &.veniroe > div {
+        @include posoffset(50vw, 4.7656vw);
+        > .svgclass {
+            width: 12.0833vw;
+            height: auto;
+        }
+    }
+    &.story > div {
+        @include posoffset(73vw, 4.7656vw);
+        > .svgclass {
+            width: 3.125vw;
+            height: auto;
+        }
+    }
+    &.gallery > div {
+        @include posoffset(90vw, 4.7656vw);
+        > .svgclass {
+            width: 4.1667vw;
+            height: auto;
+        }
+    }
+
+*/

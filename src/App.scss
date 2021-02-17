@@ -1,0 +1,337 @@
+html,
+body,
+#root {
+    height: 100vh;
+    font-family: "Fenix", serif;
+    //background: #fffaf5;
+}
+
+//offset
+@mixin posoffset($x, $y) {
+    // write the css here
+    left: calc(-50% + #{$x});
+    top: calc(-50% + #{$y});
+}
+
+#fixed-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: all;
+    background: #fffaf5;
+}
+
+#panel-one {
+    height: 77.34vw;
+    background: #fffaf5;
+}
+.one {
+    position: absolute;
+    display: grid;
+    > * {
+        //opacity: 0;
+        position: relative;
+        > svg {
+            opacity: 0;
+            mix-blend-mode: difference;
+            &#svg4 {
+                mix-blend-mode: normal;
+            }
+        }
+    }
+    &.poetry > div {
+        @include posoffset(17.45vw, 27.68vw);
+        .svgclass {
+            width: 14.895vw;
+        }
+    }
+    &.flower > div {
+        @include posoffset(31.145vw, 34.427vw);
+        .svgclass {
+            width: 26.82vw;
+            height: auto;
+        }
+    }
+    &.jewel > picture {
+        > * {
+            width: 100%;
+        }
+        opacity: 0;
+        @include posoffset(74.427vw, 55.625vw);
+        width: 32.71vw;
+        height: auto;
+        transform-origin: center;
+        transform: rotate(-160deg);
+    }
+    &.dlines > div {
+        @include posoffset(50vw, 39.5833vw);
+        .svgclass {
+            width: 105.15vw;
+        }
+    }
+    &.taken > div {
+        @include posoffset(41.09vw, 41.12vw);
+        .svgclass {
+            width: 12.4vw;
+        }
+    }
+    &.shape > div {
+        @include posoffset(58.28vw, 54.51vw);
+        .svgclass {
+            width: 12.91vw;
+        }
+    }
+}
+
+#panel-two {
+    height: 53.646vw;
+    background: #fffaf5;
+}
+
+@function calcvw($value) {
+    @return 100vw * ($value / 1920);
+}
+
+@mixin calcvwall($width, $height, $left, $top) {
+    width: calcvw($width);
+    height: calcvw($height);
+    left: calcvw($left);
+    top: calcvw($top);
+}
+.two {
+    position: absolute;
+    display: grid;
+    > * {
+        position: relative;
+    }
+    &.collection > div {
+        @include posoffset(27.396vw, 6.198vw);
+        .svgclass {
+            width: 41.406vw;
+        }
+    }
+    &.buttonbg {
+        > div {
+            //@include posoffset(49.5vw, 41vw);l
+            left: calcvw(840);
+            top: calcvw(777);
+            width: 0vw;
+
+            height: calcvw(25);
+            background: #8d782d;
+        }
+    }
+    &.viewall > div {
+        cursor: pointer;
+        @include posoffset(50vw, 40.3125vw);
+        .svgclass {
+            width: 11.7188vw;
+            height: auto;
+        }
+    }
+
+    &.dlines > div {
+        @include posoffset(49.48vw, 32.552vw);
+        .svgclass {
+            width: 111.146vw;
+            height: auto;
+            //opacity: 0;
+        }
+    }
+    &.collection-items {
+        display: flex;
+        white-space: nowrap;
+
+        @include calcvwall($width: 3000, $height: 554, $left: 236, $top: 1607);
+        > .collection-item {
+            float: left;
+            height: 100%;
+            width: calcvw(385);
+
+            margin-right: calcvw(75);
+            background-size: calcvw(653);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+#panel-three {
+    height: 62.604vw;
+    background: #fffaf5;
+}
+//left off here
+.three {
+    position: absolute;
+    display: grid;
+    > * {
+        position: relative;
+    }
+    &.jewelof > div {
+        @include posoffset(53.0468vw, 10.36458vw);
+        .svgclass {
+            width: 32.9688vw;
+        }
+    }
+    &.laguna > div {
+        @include posoffset(64.7917vw, 19.4792vw);
+        .svgclass {
+            width: 25.625vw;
+            height: auto;
+        }
+    }
+    &.portrait > picture {
+        > img {
+            width: 100%;
+        }
+        width: 21.61458vw;
+        height: auto;
+
+        @include posoffset(31.04166vw, 28.2292vw);
+    }
+    &.rect > div {
+        @include posoffset(37.8125vw, 35.7292vw);
+        .svgclass {
+            width: 15vw;
+            height: auto;
+        }
+    }
+    &.thestory > div {
+        @include posoffset(67.5521vw, 42.5vw);
+        .svgclass {
+            width: 32.0833vw;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+    &.dlines > div {
+        @include posoffset(50.7292vw, 40.729vw);
+        .svgclass {
+            width: 114.5833vw;
+            height: auto;
+        }
+    }
+}
+#panel-four {
+    height: 80.729vw;
+    background: #fffaf5;
+}
+
+.gallery-item {
+    position: absolute;
+    * {
+        position: absolute;
+
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        overflow: hidden;
+    }
+    .a1 {
+        @include posoffset(calcvw(322), calcvw(3773 - 3601));
+        width: calcvw(400);
+        height: calcvw(672);
+    }
+    .a2 {
+        @include posoffset(calcvw(322), calcvw(4469 - 3601));
+        width: calcvw(400);
+        height: calcvw(447);
+    }
+    .a3 {
+        @include posoffset(calcvw(804), calcvw(3773 - 3601));
+        width: calcvw(400);
+        height: calcvw(434);
+    }
+    .a4 {
+        @include posoffset(calcvw(804), calcvw(4234 - 3601));
+        width: calcvw(400);
+        height: calcvw(682);
+    }
+    .a5 {
+        @include posoffset(calcvw(1349), calcvw(3773 - 3601));
+        width: calcvw(400);
+        height: calcvw(531);
+    }
+    .a6 {
+        @include posoffset(calcvw(1349), calcvw(4341 - 3601));
+        width: calcvw(400);
+        height: calcvw(589);
+    }
+}
+.four {
+    position: absolute;
+    display: grid;
+    * {
+        position: relative;
+    }
+    &.gallery > div {
+        @include posoffset(24.53125vw, 9.0625vw);
+        .svgclass {
+            width: 28.75vw;
+            height: auto;
+        }
+    }
+    &.viewall > div {
+        @include posoffset(50vw, 73.4375vw);
+        .svgclass {
+            width: 11.5104vw;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+    &.dlines > div {
+        @include posoffset(50vw, 52.3958vw);
+        .svgclass {
+            width: 123.3073vw;
+            height: auto;
+        }
+    }
+    &.buttonbg {
+        > div {
+            //@include posoffset(49.5vw, 41vw);l
+            left: calcvw(840);
+            top: 73.469vw;
+            width: 0vw;
+
+            height: calcvw(25);
+            background: #8d782d;
+        }
+    }
+}
+#panel-five {
+    height: 100vh;
+    background: #1d1d1d;
+}
+.five {
+    position: absolute;
+    display: grid;
+    * {
+        position: relative;
+    }
+    &.flower > div {
+        left: calcvw(1457);
+        top: calcvw(85);
+        .svgclass {
+            width: calcvw(436);
+            height: auto;
+        }
+    }
+    &.panel > div {
+        left: calcvw(243.84);
+        top: calcvw(686.81);
+        .svgclass {
+            width: calcvw(1246.44);
+            height: auto;
+        }
+    }
+    &.stayintouch > div {
+        left: calcvw(243.84);
+        top: calcvw(205);
+        .svgclass {
+            width: calcvw(990);
+            height: auto;
+        }
+    }
+}
